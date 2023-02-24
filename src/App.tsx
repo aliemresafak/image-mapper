@@ -66,7 +66,7 @@ function App() {
             <div ref={imageMappingRef} className="image-mapping">
                 <img width="100%" height="100%" src={PartImage} alt=""/>
                 <Stage
-                    width={800}
+                    width={1000}
                     height={1000}
                     onDblClick={clickAction}
                 >

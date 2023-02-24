@@ -12,6 +12,7 @@ function App() {
     const [areas, setAreas] = useState<Area[]>([])
     const [mappingDialogVisible, setMappingDialogVisible] = useState<boolean>(false)
     const [selectedCoords, setSelectedCoords] = useState<Coord>({} as Coord)
+    const [hoverId, setHoverId] = useState<string>()
     const imageMappingRef = useRef<HTMLDivElement>(null)
     const containerRef = useRef<HTMLDivElement>(null)
     const contextMenuRef = useRef<HTMLDivElement>(null)
@@ -79,6 +80,8 @@ function App() {
                                 y={area.coords.y}
                                 radius={10}
                                 fill="red"
+                                onMouseOver={() => setHoverId(area.id)}
+                                onMouseLeave={() => setHoverId(undefined)}
                                 onDragEnd={(event) => dragEndAction(event, area.id)}
                                 onDblClick={(event) => deleteAction(event, area.id)}
                                 onContextMenu={(event) => contextMenuAction(event, area)}
@@ -88,7 +91,7 @@ function App() {
                 </Stage>
             </div>
             <div className="mapping-table">
-                <Table data={areas}/>
+                <Table data={areas} hoverId={hoverId}/>
             </div>
             <MappingDialog
                 visible={mappingDialogVisible}

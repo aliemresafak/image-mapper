@@ -7,6 +7,7 @@ interface IMappingTableColumns {
 
 interface IMappingTable {
     data: Area[]
+    hoverId?: string
 }
 
 const mappingTableColumns: Array<IMappingTableColumns> = [
@@ -30,12 +31,13 @@ const MappingTable = (props: IMappingTable) => {
                     {props.data.map((row, index: number) => (
                         <TableRow
                             key={index}
-                            sx={{'&:last-child td, &:last-child th': {border: 0}}}
+                            sx={{'&:last-child td, &:last-child th': {border: 0}, '& td': {fontWeight: props.hoverId ? 'bold': 'inherit'}}}
+
                         >
-                            <TableCell component="th" scope="row">
+                            <TableCell>
                                 {row.id}
                             </TableCell>
-                            <TableCell component="th" scope="row">
+                            <TableCell>
                                 {row.name}
                             </TableCell>
                             {row?.coords && (

@@ -1,38 +1,54 @@
-.App {
-  text-align: center;
+.container {
+    display: flex;
+    gap: 1em;
+    height: 100vh;
+    width: 100vw;
+}
+.image-mapping{
+    position: relative;
+    border: 1px solid black;
+    height: 100%;
+    width: 100%;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.image-mapping img {
+    position: absolute;
+    z-index: 0;
+    height: 100%;
+    width: 100%;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.konvajs-content{
+    /*background: orange;*/
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.konvajs-content canvas {
+    z-index: 1;
 }
 
-.App-link {
-  color: #61dafb;
+.mapping-table{
+    width: 75%;
+    padding-top: 1em;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.menu{
+    display: none;
+    position: absolute;
+    width: 60px;
+    background: white;
+    box-shadow: 0 0 5px grey;
+    border-radius: 3px;
+    z-index: 3;
+}
+
+.menu button {
+    width: 100%;
+    background: white;
+    border: none;
+    margin: 0;
+    padding: 10px;
+}
+
+.menu button:hover{
+    background: lightgray;
 }
